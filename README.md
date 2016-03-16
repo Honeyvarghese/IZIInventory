@@ -12,6 +12,15 @@ OUTPUT FILES
 AnimalAverageReport.txt
 SpeciesAverageReport.txt
 
+RUNNING INSTRUCTIONS
+
+1. Download and use the entire repository as a source folder for a java project.
+2. Add the jarlibs package to build path.
+3. Run Controller.java from the testcontroller package.
+4. Output files will be generated to the package textfiles.
+
+COMMENTS AND OBSERVATIONS
+
 Could only implement the first two requirements. However, the basic
 infrastructure is laid out to expand this model for further
 requirements.
@@ -23,7 +32,7 @@ application and ignored the persistence and UI. The model is compatible
 with web apps and persistance layers. Web based UI can access the reportFactory api
 and databases can be replaced by writing a new DAO conforming to the DataAccessObject api.
 
-Future work:
+FUTURE WORK:
 
 1. Implement the remaining requirements by expanding the DAO and report API
 2. Create a new batch update module to add employee inventory updates and feed records to the database through DAO
