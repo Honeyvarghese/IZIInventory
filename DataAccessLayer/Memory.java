@@ -1,7 +1,7 @@
 /**
  * 
  */
-package DataAccessLayer;
+package dataAccessLayer;
 
 import java.util.List;
 

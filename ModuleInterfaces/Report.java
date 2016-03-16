@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ModuleInterfaces;
+package moduleInterfaces;
 
 import java.util.List;
 
