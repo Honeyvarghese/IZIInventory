@@ -3,8 +3,6 @@
  */
 package reports;
 
-import java.util.List;
-
 import moduleInterfaces.Report;
 
 /**

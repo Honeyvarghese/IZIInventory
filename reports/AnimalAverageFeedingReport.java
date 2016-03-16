@@ -20,6 +20,9 @@ import vo.FeedRecord;
  */
 public class AnimalAverageFeedingReport  implements Report{
 
+	private static final String REPORT_HEADER = "Animal ID,Daily Feed Average Quantity";
+	private static final String REPORT_DELIMITER = ",";
+
 	/**
 	 * 
 	 */
@@ -34,16 +37,17 @@ public class AnimalAverageFeedingReport  implements Report{
 	 */
 	@Override
 	public List<String> getReport() {
-		DataAccessObject dao = Controller.getDao();
-		List<Animal> animals = dao.getAllAnimals();
-		List<String> animalAverages = new ArrayList<String>();
+		DataAccessObject dao = Controller.getDao(); //database access
+		List<Animal> animals = dao.getAllAnimals(); //all animals in database
+		List<String> animalAverages = new ArrayList<String>();//animal feeding quantity averages.
+		animalAverages.add(REPORT_HEADER);//adding headers.
 		for(Animal animal : animals){
-			List<FeedRecord> feedRecords = dao.getAllFeedRecordsbyAnimalId(animal.getAnimalId());
+			List<FeedRecord> feedRecords = dao.getAllFeedRecordsbyAnimalId(animal.getAnimalId()); //getting all feed record of the individual
 			Map<String,Float> dailyFeed = new HashMap<String,Float>();
 			for(FeedRecord f: feedRecords){
 				if(dailyFeed.get(f.getDate()) != null){
 					Float newVal = dailyFeed.get(f.getDate());
-					newVal+=dailyFeed.get(f.getQuantity());
+					newVal+=dailyFeed.get(f.getDate());
 					dailyFeed.put(f.getDate(),newVal);
 				}else
 					dailyFeed.put(f.getDate(), f.getQuantity());
@@ -52,8 +56,8 @@ public class AnimalAverageFeedingReport  implements Report{
 			for(Float f: dailyFeed.values()){
 				average+=f;
 			}
-			average/=dailyFeed.keySet().size();
-			animalAverages.add(animal.getAnimalId() + " " + average);
+			average/=dailyFeed.keySet().size(); //Calculating the average daily feed quantity
+			animalAverages.add(animal.getAnimalId() + REPORT_DELIMITER + average);
 		}
 		return animalAverages;
 	}

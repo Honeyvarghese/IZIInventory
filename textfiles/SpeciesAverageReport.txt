@@ -1,2 +1,3 @@
-panthera tigris 0.0
-panthera leo 0.0
+Species,Daily Feed Average Quantity
+panthera tigris,1.5
+panthera leo,1.0

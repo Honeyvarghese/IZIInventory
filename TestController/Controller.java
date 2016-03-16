@@ -16,12 +16,20 @@ import utils.FileOperations;
  */
 public class Controller {
 
+	
+	/**
+	 * Following constants are the path to the text file which include both databases and report files. 
+	 */
 	private static final String ANIMAL_DATABASE_PATH = "IZIInventory\\textfiles\\AnimalDatabase.txt";
 	private static final String FEED_RECORD_DATABASE = "IZIInventory\\textfiles\\FeedRecordDatabase.txt";
 	private static final String FOOD_INVENTORY_DATABASE = "IZIInventory\\textfiles\\FoodInventoryDatabase.txt";
 	private static final String ANIMAL_AVERAGE_REPORT_PATH = "IZIInventory\\textfiles\\AnimalAverageReport.txt";
 	private static final String SPECIES_FEEDING_AVERAGE_REPORT_PATH = "IZIInventory\\textfiles\\SpeciesAverageReport.txt";
 	
+	
+	/**
+	 * Data access object 
+	 */
 	private static DataAccessObject dao;
 
 	/**
