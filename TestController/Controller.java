@@ -8,6 +8,7 @@ import java.io.IOException;
 import dataAccessLayer.DAO;
 import dataAccessLayer.Memory;
 import moduleInterfaces.DataAccessObject;
+import reports.ReportFactory;
 import utils.FileOperations;
 
 /**
@@ -19,6 +20,7 @@ public class Controller {
 	private static final String ANIMAL_DATABASE_PATH = "IZIInventory\\textfiles\\AnimalDatabase.txt";
 	private static final String FEED_RECORD_DATABASE = "IZIInventory\\textfiles\\FeedRecordDatabase.txt";
 	private static final String FOOD_INVENTORY_DATABASE = "IZIInventory\\textfiles\\FoodInventoryDatabase.txt";
+	private static final String ANIMAL_AVERAGE_REPORT_PATH = "IZIInventory\\textfiles\\AnimalAverageReport.txt";
 	
 	private static DataAccessObject dao;
 	
@@ -39,7 +41,9 @@ public class Controller {
 		dao = new DAO();
 		//Loading the database
 		loadDatabase();
-
+		//Writes the individual average animal report.
+		FileOperations.writeFile(ANIMAL_AVERAGE_REPORT_PATH, ReportFactory.getAnimalAverageReport());
+		
 	}
 
 	/**
@@ -50,7 +54,6 @@ public class Controller {
 		Memory.setAnimalDatabase(FileOperations.readFile(ANIMAL_DATABASE_PATH));
 		Memory.setFeedRecordDatabase(FileOperations.readFile(FEED_RECORD_DATABASE));
 		Memory.setFoodInventoryDatabase(FileOperations.readFile(FOOD_INVENTORY_DATABASE));
-		
 	}
 
 	/**

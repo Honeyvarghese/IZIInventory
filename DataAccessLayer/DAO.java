@@ -39,7 +39,7 @@ public class DAO implements DataAccessObject {
 					animalDataArray[3]);
 			animals.add(animal);
 		}
-		return null;
+		return animals;
 	}
 	
 	/**
