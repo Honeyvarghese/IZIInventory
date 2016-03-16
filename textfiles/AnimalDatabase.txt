@@ -1,2 +1,4 @@
 1,1,panthera tigris,1
 2,1,panthera leo,1
+3,2,panthera tigris,1
+4,2,panthera leo,1

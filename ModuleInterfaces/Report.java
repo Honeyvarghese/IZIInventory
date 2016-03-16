@@ -14,5 +14,5 @@ public interface Report {
 	/**
 	 * @return Formatted report lines
 	 */
-	public List<String> generateReport();
+	public List<String> getReport();
 }

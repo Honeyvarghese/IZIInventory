@@ -27,8 +27,13 @@ public class AnimalAverageFeedingReport  implements Report{
 		// TODO Auto-generated constructor stub
 	}
 
+	/*
+	 * This function returns the report 
+	 * (non-Javadoc)
+	 * @see moduleInterfaces.Report#generateReport()
+	 */
 	@Override
-	public List<String> generateReport() {
+	public List<String> getReport() {
 		DataAccessObject dao = Controller.getDao();
 		List<Animal> animals = dao.getAllAnimals();
 		List<String> animalAverages = new ArrayList<String>();

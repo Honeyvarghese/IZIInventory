@@ -12,8 +12,7 @@ import reports.ReportFactory;
 import utils.FileOperations;
 
 /**
- * @author Honey Varghese
- * This class enables the developer to test the model.
+ * @author Honey Varghese This class enables the developer to test the model.
  */
 public class Controller {
 
@@ -21,9 +20,10 @@ public class Controller {
 	private static final String FEED_RECORD_DATABASE = "IZIInventory\\textfiles\\FeedRecordDatabase.txt";
 	private static final String FOOD_INVENTORY_DATABASE = "IZIInventory\\textfiles\\FoodInventoryDatabase.txt";
 	private static final String ANIMAL_AVERAGE_REPORT_PATH = "IZIInventory\\textfiles\\AnimalAverageReport.txt";
+	private static final String SPECIES_FEEDING_AVERAGE_REPORT_PATH = "IZIInventory\\textfiles\\SpeciesAverageReport.txt";
 	
 	private static DataAccessObject dao;
-	
+
 	/**
 	 * Constructor of controller class
 	 */
@@ -33,22 +33,24 @@ public class Controller {
 
 	/**
 	 * @param args
-	 * Entry point for this project.
-	 * @throws IOException 
+	 *            Entry point for this project.
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		
+
 		dao = new DAO();
-		//Loading the database
+		// Loading the database
 		loadDatabase();
-		//Writes the individual average animal report.
-		FileOperations.writeFile(ANIMAL_AVERAGE_REPORT_PATH, ReportFactory.getAnimalAverageReport());
-		
+		// Writes the individual average animal report.
+		FileOperations.writeFile(ANIMAL_AVERAGE_REPORT_PATH, ReportFactory.getAnimalAverageReport().getReport());
+		// Writes report for the average feeding times for each species.
+		FileOperations.writeFile(SPECIES_FEEDING_AVERAGE_REPORT_PATH, ReportFactory.getSpeciesDailyTimesAverageReport().getReport());
+
 	}
 
 	/**
 	 * @throws IOException
-	 * Loads the text based database to the in-memory database.
+	 *             Loads the text based database to the in-memory database.
 	 */
 	private static void loadDatabase() throws IOException {
 		Memory.setAnimalDatabase(FileOperations.readFile(ANIMAL_DATABASE_PATH));
@@ -64,7 +66,8 @@ public class Controller {
 	}
 
 	/**
-	 * @param dao the dao to set
+	 * @param dao
+	 *            the dao to set
 	 */
 	public static void setDao(DataAccessObject dao) {
 		Controller.dao = dao;
